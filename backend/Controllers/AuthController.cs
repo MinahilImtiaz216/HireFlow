@@ -26,6 +26,9 @@ public class AuthController : ControllerBase
         if (string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Email) || string.IsNullOrWhiteSpace(dto.Password))
             return BadRequest(new { message = "Name, email, and password are required" });
 
+        if (!IsValidEmail(dto.Email))
+            return BadRequest(new { message = "Please use a valid email address (e.g. Gmail, Yahoo, Outlook)" });
+
         if (dto.Password.Length < 8)
             return BadRequest(new { message = "Password must be at least 8 characters" });
 
@@ -72,6 +75,33 @@ public class AuthController : ControllerBase
             AccessToken = token,
             User = new UserOutDto { Id = user.Id!, Name = user.Name, Email = user.Email, Role = user.Role, CreatedAt = user.CreatedAt }
         });
+    }
+
+    private static bool IsValidEmail(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email) || !email.Contains('@')) return false;
+        var parts = email.ToLower().Trim().Split('@');
+        if (parts.Length != 2) return false;
+        var domain = parts[1];
+
+        // Allow known real email domains only
+        var allowedDomains = new[]
+        {
+            "gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "live.com",
+            "icloud.com", "protonmail.com", "ymail.com", "aol.com", "msn.com",
+            "students.au.edu.pk", "au.edu.pk", "edu.pk", "gov.pk", "gmail.com.pk"
+        };
+
+        // Also allow any .edu.pk or .com.pk or proper domains with valid TLD
+        if (allowedDomains.Contains(domain)) return true;
+        if (domain.EndsWith(".edu.pk") || domain.EndsWith(".ac.pk") || domain.EndsWith(".org.pk")) return true;
+
+        // Must have a dot in the domain and domain part must be at least 4 chars
+        var domainParts = domain.Split('.');
+        if (domainParts.Length < 2) return false;
+        var tld = domainParts[^1];
+        var sld = domainParts[^2];
+        return tld.Length >= 2 && sld.Length >= 2 && !domain.Contains("test") && !domain.Contains("fake") && !domain.Contains("abc");
     }
 
     [HttpGet("me")]

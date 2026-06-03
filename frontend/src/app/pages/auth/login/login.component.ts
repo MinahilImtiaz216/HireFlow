@@ -21,7 +21,7 @@ import { AuthService } from '../../../services/auth.service';
             <label>Email</label>
             <input type="email" formControlName="email" class="form-control"
               [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched"
-              placeholder="you@example.com" autocomplete="email">
+              placeholder="you@gmail.com" autocomplete="email">
             <span class="error-text" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Enter a valid email</span>
           </div>
           <div class="form-group">
