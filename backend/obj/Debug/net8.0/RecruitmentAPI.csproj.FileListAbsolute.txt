@@ -54,3 +54,4 @@ C:\Users\USER\OneDrive\Desktop\2nd SEM\WEB TECH LAB\db proj\backend\obj\Debug\ne
 C:\Users\USER\OneDrive\Desktop\2nd SEM\WEB TECH LAB\db proj\backend\obj\Debug\net8.0\RecruitmentAPI.pdb
 C:\Users\USER\OneDrive\Desktop\2nd SEM\WEB TECH LAB\db proj\backend\obj\Debug\net8.0\RecruitmentAPI.genruntimeconfig.cache
 C:\Users\USER\OneDrive\Desktop\2nd SEM\WEB TECH LAB\db proj\backend\obj\Debug\net8.0\ref\RecruitmentAPI.dll
+C:\Users\USER\OneDrive\Desktop\2nd SEM\WEB TECH LAB\db proj\backend\obj\Debug\net8.0\RecruitmentAPI.sourcelink.json
