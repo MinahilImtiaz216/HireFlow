@@ -83,7 +83,7 @@ Frontend runs at: **http://localhost:4200**
 - `DELETE /api/jobs/{id}` - Delete job
 - `GET /api/jobs/employer/my-jobs` - Employer's jobs
 
-### Applications
+
 - `POST /api/applications/jobs/{jobId}/apply` - Apply to job
 - `GET /api/applications/my` - My applications
 - `GET /api/applications/jobs/{jobId}` - Job applicants
