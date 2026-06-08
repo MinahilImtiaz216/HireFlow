@@ -52,7 +52,7 @@ Swagger UI: **http://localhost:5000/swagger**
 
 The backend will automatically seed demo data on first run.
 
-### 3. Start the Frontend
+### 3. Start the Fronte
 ```bash
 cd frontend
 npm install
