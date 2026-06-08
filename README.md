@@ -10,7 +10,8 @@ A full-stack recruitment portal built with **Angular + ASP.NET Core + MongoDB**.
 - **Backend**: ASP.NET Core 8 Web API (C#)
 - **Database**: MongoDB
 
-## Feature
+
+
 - JWT Authentication (Login/Signup with roles: Candidate, Employer, Admin)
 - 6+ dynamic pages with Angular Routing
 - Reactive Forms with validation
